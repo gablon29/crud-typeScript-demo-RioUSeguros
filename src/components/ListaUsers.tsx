@@ -7,38 +7,10 @@ import {
 	TableHeaderCell,
 	TableRow,
 } from "@tremor/react";
-
-const usersData: {
-	id: string;
-	name: string;
-	email: string;
-	age: string;
-	gitHub: string;
-}[] = [
-	{
-		id: "1",
-		name: "Gabriel Londero",
-		email: "gabriellondero40@gmail.com",
-		age: "28",
-		gitHub: "gablon29",
-	},
-	{
-		id: "2",
-		name: "Lucas Londero",
-		email: "lucaslondero@gmail.com",
-		age: "31",
-		gitHub: "lucasDev",
-	},
-	{
-		id: "3",
-		name: "Florencia Pacheco",
-		email: "ritaflorenciap8@gmail.com",
-		age: "28",
-		gitHub: "florenciaFront",
-	},
-];
+import { useAppSelector } from "../hooks/store";
 
 export default function ListUsers() {
+	const usersData = useAppSelector((state) => state.users);
 	return (
 		<Card>
 			<Table>
