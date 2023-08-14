@@ -1,4 +1,5 @@
 import {
+	Badge,
 	Card,
 	Table,
 	TableBody,
@@ -6,13 +7,21 @@ import {
 	TableHead,
 	TableHeaderCell,
 	TableRow,
+	Title,
 } from "@tremor/react";
 import { useAppSelector } from "../hooks/store";
+import { useUserActions } from "../hooks/useUserActions";
 
 export default function ListUsers() {
 	const usersData = useAppSelector((state) => state.users);
+	const { removeUser } = useUserActions();
+
 	return (
 		<Card>
+			<Title>
+				Usuarios
+				<Badge style={{ marginLeft: "8px" }}>{usersData.length}</Badge>
+			</Title>
 			<Table>
 				<TableHead>
 					<TableRow>
@@ -59,7 +68,7 @@ export default function ListUsers() {
 										/>
 									</svg>
 								</button>
-								<button type="button">
+								<button type="button" onClick={() => removeUser(item.id)}>
 									<svg
 										xmlns="http://www.w3.org/2000/svg"
 										fill="none"
