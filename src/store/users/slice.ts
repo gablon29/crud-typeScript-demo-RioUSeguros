@@ -47,6 +47,10 @@ export const userSlice = createSlice({
 	name: "users",
 	initialState,
 	reducers: {
+		addNewUsers: (state, action: PayloadAction<User>) => {
+			const id = crypto.randomUUID(); //servicio de windows para acceder a servicion se criptografia
+			return [...state, { id, ...action.payload }];
+		},
 		deleteUserById: (state, action: PayloadAction<UserId>) => {
 			const id = action.payload;
 			return state.filter((user) => user.id !== id);
@@ -55,4 +59,4 @@ export const userSlice = createSlice({
 });
 
 export default userSlice.reducer;
-export const { deleteUserById } = userSlice.actions;
+export const { addNewUsers, deleteUserById } = userSlice.actions;
