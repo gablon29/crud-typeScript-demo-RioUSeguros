@@ -2,7 +2,7 @@ import { Button, Card, TextInput, Title } from "@tremor/react";
 import { useUserActions } from "../hooks/useUserActions";
 
 export function CreateUsers() {
-	const { newUser } = useUserActions();
+	const { newUsers } = useUserActions();
 
 	const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
@@ -10,6 +10,11 @@ export function CreateUsers() {
 		const formData = new FormData(form);
 
 		const name = formData.get("name") as string;
+		const email = formData.get("email") as string;
+		const age = formData.get("age") as string;
+		const gitHub = formData.get("gitHub") as string;
+
+		newUsers({ name, email, age, gitHub });
 	};
 	return (
 		<Card style={{ margin: "16px" }}>
