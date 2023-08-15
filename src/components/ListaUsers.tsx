@@ -25,9 +25,9 @@ export default function ListUsers() {
 			<Table>
 				<TableHead>
 					<TableRow>
-						<TableHeaderCell> Id </TableHeaderCell>
 						<TableHeaderCell> Name </TableHeaderCell>
 						<TableHeaderCell> Email </TableHeaderCell>
+						<TableHeaderCell> Age </TableHeaderCell>
 						<TableHeaderCell> Acciones </TableHeaderCell>
 					</TableRow>
 				</TableHead>
@@ -49,6 +49,7 @@ export default function ListUsers() {
 								{item.name}
 							</TableCell>
 							<TableCell>{item.email}</TableCell>
+							<TableCell>{item.age}</TableCell>
 							<TableCell>
 								<button type="button">
 									<svg
